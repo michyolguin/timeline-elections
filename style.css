@@ -2,30 +2,29 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.75;
-  text-transform: uppercase; /* All text in uppercase */
-  color: #fff; /* White text color for better contrast with purple backgrounds */
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #031625; /* Dark base background to contrast the timeline */
 }
 
 #timeline {
   display: flex;
-  background-color: #340136; /* Dark purple background */
-}
-#timeline:hover .tl-item {
-  width: 23.3333%;
+  justify-content: space-around; /* Adjusted for spacing */
+  flex-wrap: wrap; /* Allows items to wrap in smaller views */
+  padding: 20px 0; /* Added padding */
 }
 
 .tl-item {
-  transform: translate3d(0, 0, 0);
   position: relative;
-  width: 25%;
-  height: 100vh;
-  min-height: 600px;
-  color: #fff;
+  width: 23.3333%; /* Adjusted for more items */
+  height: 25vh; /* Reduced height */
+  min-height: 150px; /* Adjusted minimum height */
   overflow: hidden;
   transition: width 0.5s ease;
+  margin-bottom: 20px; /* Added spacing between rows */
 }
+
 .tl-item:before, .tl-item:after {
-  transform: translate3d(0, 0, 0);
   content: "";
   position: absolute;
   left: 0;
@@ -33,45 +32,37 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .tl-item:after {
-  background: rgba(51, 0, 68, 0.85); /* Darker purple overlay */
-  opacity: 1;
+  background: rgba(50, 23, 70, 0.85); /* Darker purple */
   transition: opacity 0.5s ease;
 }
+
 .tl-item:before {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #35013f 75%); /* Gradient to purple */
-  z-index: 1;
+  background: linear-gradient(to bottom, rgba(75, 0, 130, 0) 0%, #4B0082 75%); /* Indigo to darker shade */
   opacity: 0;
-  transform: translate3d(0, 0, 0) translateY(50%);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 .tl-item:hover:after {
   opacity: 0;
 }
+
 .tl-item:hover:before {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) translateY(0);
-}
-.tl-item:hover .tl-content {
   opacity: 1;
   transform: translateY(0);
 }
+
 .tl-bg {
   background-size: cover;
   background-position: center center;
   transition: filter 0.5s ease;
+  filter: grayscale(100%);
 }
 
-.tl-content, .tl-year p {
+.tl-year p, .tl-content h1, .tl-content p {
   font-family: "Inter", sans-serif;
-  text-transform: uppercase; /* Ensure text is uppercase */
+  color: #D8BFD8; /* Thistle, soft purple */
 }
 
-.tl-year {
-  border-top: 1px solid #a278ff; /* Light purple */
-  border-bottom: 1px solid #a278ff; /* Light purple */
-}
-
-.tl-content h1, .tl-content p {
-  color: #dabfff; /* Lighter purple text for readability */
-}
+/* Additional styles for .tl-year and .tl-content as needed */
