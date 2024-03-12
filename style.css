@@ -1,0 +1,77 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  text-transform: uppercase; /* All text in uppercase */
+  color: #fff; /* White text color for better contrast with purple backgrounds */
+}
+
+#timeline {
+  display: flex;
+  background-color: #340136; /* Dark purple background */
+}
+#timeline:hover .tl-item {
+  width: 23.3333%;
+}
+
+.tl-item {
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  width: 25%;
+  height: 100vh;
+  min-height: 600px;
+  color: #fff;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+.tl-item:before, .tl-item:after {
+  transform: translate3d(0, 0, 0);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.tl-item:after {
+  background: rgba(51, 0, 68, 0.85); /* Darker purple overlay */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.tl-item:before {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #35013f 75%); /* Gradient to purple */
+  z-index: 1;
+  opacity: 0;
+  transform: translate3d(0, 0, 0) translateY(50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.tl-item:hover:after {
+  opacity: 0;
+}
+.tl-item:hover:before {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) translateY(0);
+}
+.tl-item:hover .tl-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tl-bg {
+  background-size: cover;
+  background-position: center center;
+  transition: filter 0.5s ease;
+}
+
+.tl-content, .tl-year p {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase; /* Ensure text is uppercase */
+}
+
+.tl-year {
+  border-top: 1px solid #a278ff; /* Light purple */
+  border-bottom: 1px solid #a278ff; /* Light purple */
+}
+
+.tl-content h1, .tl-content p {
+  color: #dabfff; /* Lighter purple text for readability */
+}
