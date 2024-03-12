@@ -9,20 +9,23 @@ body {
 
 #timeline {
   display: flex;
-  justify-content: space-between; /* Ensure items are evenly spaced */
+  justify-content: start; /* Align items at the start */
   flex-wrap: nowrap; /* Prevent wrapping to keep the timeline horizontal */
   overflow-x: auto; /* Allow horizontal scrolling */
   padding: 20px 0;
+  width: 100%; /* Ensure timeline uses full width */
 }
 
 .tl-item {
   position: relative;
-  width: 30%; /* Increase width for each item */
+  width: 20%; /* Further reduce width for each item */
+  min-width: 200px; /* Set a minimum width to ensure readability */
   height: 25vh; /* Keep height short */
   min-height: 150px; /* Adjust minimum height */
   overflow: hidden;
   transition: width 0.5s ease;
   margin: 0 10px; /* Ensure some spacing between items */
+  flex-shrink: 0; /* Prevent flex items from shrinking */
 }
 
 .tl-item:before, .tl-item:after {
@@ -66,7 +69,7 @@ body {
   color: #D8BFD8; /* Thistle, soft purple */
 }
 
-/* Ensure scrollbar visibility for overflow */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   height: 10px;
 }
